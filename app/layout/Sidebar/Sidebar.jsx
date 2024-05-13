@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { personsImgs } from "../../../utils/images";
 import { navigationLinks } from "../../data/data";
+
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebarContext";
 
@@ -13,16 +14,15 @@ const Sidebar = () => {
   return (
     <div
       className={`
+    sidebar
     bg-primary
+    ease-in duration-300
     px-2
     py-5
-    ml-[-72px]
-    xl:w-[72px]
-    xl:px-9
+    w-[72px]
+    xl:w-[260px]
 
-    ${isSidebarOpen 
-      ? "ml-0 xl:ml-[-72px]" 
-      : ""}
+    ${isSidebarOpen ? "sidebar-change -ml-[72px] xl:-ml-[260px]" : ""}
     `}
     >
       <div className="flex justify-start items-center gap-x-4">
@@ -38,10 +38,12 @@ const Sidebar = () => {
         </span>
       </div>
 
-      <nav className="
+      <nav
+        className="
       mt-7
       h-[600px]
-      ">
+      "
+      >
         <ul>
           {navigationLinks.map((navigationLink) => (
             <li className="mb-2 mr-2" key={navigationLink.id}>
