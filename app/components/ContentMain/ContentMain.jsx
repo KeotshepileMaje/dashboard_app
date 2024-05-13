@@ -17,10 +17,10 @@ const ContentMain = () => {
         lg:gap-x-[16px]
         md:gap-x-[12px]
         md:grid-cols-2
-        border-2
         grid-cols-1
         gap-x-0
         gap-y-[12px]
+        
         "
       >
         <Cards />
