@@ -14,7 +14,6 @@ const Sidebar = () => {
   return (
     <div
       className={`
-    sidebar
     bg-primary
     ease-in duration-300
     px-2
@@ -22,7 +21,7 @@ const Sidebar = () => {
     w-[72px]
     xl:w-[260px]
 
-    ${isSidebarOpen ? "sidebar-change -ml-[72px] xl:-ml-[260px]" : ""}
+    ${isSidebarOpen ? " -ml-[72px] xl:-ml-[260px]" : ""}
     `}
     >
       <div className="flex justify-start items-center gap-x-4">
