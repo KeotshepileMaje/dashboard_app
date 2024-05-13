@@ -1,7 +1,17 @@
-import Image from "next/image";
+import Sidebar from "./layout/Sidebar/Sidebar";
+import Content from "./layout/Content/Content";
+import { SidebarProvider } from "./context/sidebarContext";
 
 export default function Home() {
   return (
-    <div>HOME PAGE</div>
+    <>
+      <SidebarProvider>
+        <div className="app">
+        <Sidebar />
+        <Content />
+      </div>
+      </SidebarProvider>
+      
+    </>
   );
 }
