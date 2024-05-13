@@ -1,4 +1,3 @@
-import "./Transactions.css";
 import { transactions } from "../../data/data";
 import { iconsImgs } from "../../../utils/images";
 
