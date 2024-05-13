@@ -1,5 +1,5 @@
-import { iconsImgs } from "../../../utils/images";
-import { reportData } from "../../data/data";
+import { iconsImgs } from "../../utils/images";
+import { reportData } from "../data/data";
 
 const Report = () => {
   return (
@@ -52,6 +52,6 @@ const Report = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Report
+export default Report;

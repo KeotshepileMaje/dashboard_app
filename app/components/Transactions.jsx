@@ -1,5 +1,5 @@
-import { transactions } from "../../data/data";
-import { iconsImgs } from "../../../utils/images";
+import { transactions } from "../data/data";
+import { iconsImgs } from "../../utils/images";
 
 const Transactions = () => {
   return (

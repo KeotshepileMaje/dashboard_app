@@ -1,10 +1,10 @@
-import Content from "./components/Content";
-import ContentMain from "./components/ContentMain/ContentMain";
+
+import ContentMain from "./components/ContentMain";
 
 export default function Home() {
   return (
     <>
-      <ContentMain/>
+      <ContentMain />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { iconsImgs } from "../../../utils/images";
+import { iconsImgs } from "../../utils/images";
 
 const Cards = () => {
   return (

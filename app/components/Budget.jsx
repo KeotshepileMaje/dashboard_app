@@ -1,5 +1,5 @@
-import { iconsImgs } from "../../../utils/images";
-import { budget } from "../../data/data";
+import { iconsImgs } from "../../utils/images";
+import { budget } from "../data/data";
 
 const Budget = () => {
   return (

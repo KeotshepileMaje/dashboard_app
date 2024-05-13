@@ -1,5 +1,5 @@
-import { subscriptions } from "../../data/data";
-import { iconsImgs } from "../../../utils/images";
+import { subscriptions } from "../data/data";
+import { iconsImgs } from "../../utils/images";
 
 const Subscriptions = () => {
   return (

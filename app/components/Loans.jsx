@@ -1,4 +1,4 @@
-import { iconsImgs } from "../../../utils/images";
+import { iconsImgs } from "../../utils/images";
 
 const Loans = () => {
   return (
@@ -12,19 +12,21 @@ const Loans = () => {
 
       <div className="grid-c7-content flex justify-around items-center mt-[-42px] mb-[-128px]">
         <div className="progress-bar flex justify-center items-center ml-[-46px]">
-          
           <div className="relative">
             <svg className="relative w-[210px] h-[210px] rotate-90">
-              <circle cx="105" cy="105" r="50"
-              style={{
-                width: '100%',
-                height: '100%',
-                fill: 'none',
-                stroke: 'var(--clr-jet)',
-                strokeWidth: 20,
-                strokeLinecap: 'round',
-                stroke: 'var(--clr-pumpkin)',
-              }}
+              <circle
+                cx="105"
+                cy="105"
+                r="50"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  fill: "none",
+                  stroke: "var(--clr-jet)",
+                  strokeWidth: 20,
+                  strokeLinecap: "round",
+                  stroke: "var(--clr-pumpkin)",
+                }}
               ></circle>
             </svg>
 

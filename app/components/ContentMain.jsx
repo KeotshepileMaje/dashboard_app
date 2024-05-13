@@ -1,11 +1,11 @@
-import Cards from "../Cards/Cards";
-import Transactions from "../Transactions/Transactions";
-import Report from "../Report/Report";
-import Budget from "../Budget/Budget";
-import Subscriptions from "../Subscriptions/Subscriptions";
-import Savings from "../Savings/Savings";
-import Loans from "../Loans/Loans";
-import Financial from "../Financial/Financial";
+import Cards from "./Cards";
+import Transactions from "./Transactions";
+import Report from "./Report";
+import Budget from "./Budget";
+import Subscriptions from "./Subscriptions";
+import Savings from "./Savings";
+import Loans from "./Loans";
+import Financial from "./Financial";
 
 const ContentMain = () => {
   return (
