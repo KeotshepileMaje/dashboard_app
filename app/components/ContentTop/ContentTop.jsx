@@ -1,9 +1,12 @@
-import { iconsImgs } from "../../../utils/images";
+"use client"
+
+import { SidebarContext } from "@/app/context/sidebarContext";
+import { iconsImgs } from "@/utils/images";
 import { useContext } from "react";
-import { SidebarContext } from "../../context/sidebarContext";
 
 const ContentTop = () => {
   const { toggleSidebar } = useContext(SidebarContext);
+
   return (
     <div className="flex justify-between items-center mb-8">
       <div className="flex items-center">

@@ -1,17 +1,10 @@
-import Sidebar from "./layout/Sidebar/Sidebar";
-import Content from "./layout/Content/Content";
-import { SidebarProvider } from "./context/sidebarContext";
+import Content from "./components/Content";
+import ContentMain from "./components/ContentMain/ContentMain";
 
 export default function Home() {
   return (
     <>
-      <SidebarProvider>
-        <div className="app">
-        <Sidebar />
-        <Content />
-      </div>
-      </SidebarProvider>
-      
+      <ContentMain/>
     </>
   );
 }
