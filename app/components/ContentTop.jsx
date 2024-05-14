@@ -17,7 +17,7 @@ const ContentTop = () => {
         >
           <img src={iconsImgs.menu} alt="" className="w-5" />
         </button>
-        <h3 className="text-white text-xl font-semibold">Home</h3>
+        <h3 className="heading-3">Home</h3>
       </div>
       <div className="flex">
         <button type="button" className="mr-4">
