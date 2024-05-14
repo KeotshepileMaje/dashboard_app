@@ -1,8 +1,7 @@
 import ProductAdminNav from "../components/products/ProductAdminNav";
 
 export const metadata = {
-  title: "E-shop Admin",
-  description: "E-shop Admin Dashboard",
+  title: "Dashboard Manager",
 };
 
 const Products = ({ children }) => {

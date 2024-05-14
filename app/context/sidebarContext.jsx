@@ -5,7 +5,7 @@ import reducer from "../reducer/sidebarReducer";
 import PropTypes from "prop-types";
 
 const initialState = {
-  isSidebarOpen: false,
+  isSidebarOpen: true,
 };
 
 export const SidebarContext = createContext({});

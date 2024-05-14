@@ -1,12 +1,14 @@
-// import AddProductForm from "./AddProductsForm";
+import FormWrap from "@/app/components/form/FormWrap";
+import AddProductForm from "./AddProductForm";
 
 const AddProducts = () => {
   return (
     <div>
-      {/* <AddProductForm /> */}
-      Add Products
+      <FormWrap>
+        <AddProductForm />
+      </FormWrap>
     </div>
   );
 }
- 
+
 export default AddProducts;

@@ -16,7 +16,7 @@ const AdminNav = ({children}) => {
                 items-center
                 justify-between
                 md:justify-center
-                gap-8
+                gap-3
                 md:gap-12
                 overflow-x-auto
                 flex-nowrap

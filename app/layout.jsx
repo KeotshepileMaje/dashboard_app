@@ -3,6 +3,7 @@ import "./globals.css";
 import { SidebarProvider } from "./context/sidebarContext";
 import Sidebar from "./components/Sidebar";
 import ContentTop from "./components/ContentTop";
+import { Toaster } from "./components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +19,11 @@ export default function RootLayout({ children }) {
         <SidebarProvider>
           <div className="flex min-h-[100vh]">
             <Sidebar />
-            <div className="bg-secondary flex-1 p-[32px] md:[20px] lg:[16px]">
+            <div className="bg-secondary flex-1 p-2 md:[20px] lg:[16px]">
               <ContentTop />
               {children}
             </div>
+            <Toaster />
           </div>
         </SidebarProvider>
       </body>
