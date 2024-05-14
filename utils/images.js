@@ -16,6 +16,9 @@ export const iconsImgs = {
   user: "/icons/user.svg",
   wallet: "/icons/wallet.svg",
   wealth: "/icons/wealth.svg",
+  products: "/icons/products.svg",
+  add_product: "/icons/add_product.svg",
+  product_management: "/icons/product_management.svg",
 };
 
 export const personsImgs = {
