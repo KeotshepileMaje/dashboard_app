@@ -191,29 +191,28 @@ const AddProductForm = () => {
 
     console.log('productData', productData)
     
-  //   axios.post('/api/product', productData)
-  //     .then(()=>{
-  //       // toast.success("Product created");
-  //       toast({
-  //         variant: "success",
-  //         title: "Uh oh! Something went wrong.",
-  //         description: "Something went wrong when saving the product",
-  //         action: <ToastAction altText="Try again">Try again</ToastAction>,
-  //       });
-  //       setIsProductCreated(true);
-  //       router.refresh();
-  //     })
-  //     .catch((error) => {
-  //       toast({
-  //         variant: "destructive",
-  //         title: "Uh oh! Something went wrong.",
-  //         description: "Something went wrong when saving the product",
-  //         action: <ToastAction altText="Try again">Try again</ToastAction>,
-  //       });
-  //     })
-  //     .finally(()=> {
-  //       setIsLoading(false)
-  //     })
+    axios.post('/api/product', productData)
+      .then(()=>{
+        toast({
+          variant: "success",
+          title: "Uh oh! Something went wrong.",
+          description: "Something went wrong when saving the product",
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        });
+        setIsProductCreated(true);
+        router.refresh();
+      })
+      .catch((error) => {
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: "Something went wrong when saving the product",
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        });
+      })
+      .finally(()=> {
+        setIsLoading(false)
+      })
   }
 
   return (
