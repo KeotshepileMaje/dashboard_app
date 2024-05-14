@@ -1,4 +1,4 @@
-import AdminNav from "../components/products/ProductManagementNav";
+import ProductAdminNav from "../components/products/ProductAdminNav";
 
 export const metadata = {
   title: "E-shop Admin",
@@ -9,7 +9,7 @@ const Products = ({ children }) => {
   return (
     <div>
       <div>
-        <AdminNav />
+        <ProductAdminNav/>
       </div>
       {children}
     </div>
