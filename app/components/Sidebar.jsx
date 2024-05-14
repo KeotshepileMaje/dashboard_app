@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { personsImgs } from "../../utils/images";
 import { navigationLinks } from "../data/data";
-
 import { useContext } from "react";
 import { SidebarContext } from "../context/sidebarContext";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [activeLinkIdx] = useState(1);
@@ -46,8 +46,8 @@ const Sidebar = () => {
         <ul>
           {navigationLinks.map((navigationLink) => (
             <li className="mb-2 mr-2" key={navigationLink.id}>
-              <a
-                href="#"
+              <Link
+                href={`/${navigationLink.title.toLowerCase() === 'home' ? '/' : navigationLink.title.toLowerCase()}`}
                 className={`
                 flex 
                 items-center 
@@ -85,7 +85,7 @@ const Sidebar = () => {
                 >
                   {navigationLink.title}
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
