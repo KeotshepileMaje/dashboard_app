@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <SidebarProvider>
           <div className="flex min-h-[100vh]">
             <Sidebar />
-            <div className="bg-secondary flex-1 p-2 md:[20px] lg:[16px]">
+            <div className="bg-secondary flex-1 p-2 md:p-4 lg:p-10">
               <ContentTop />
               {children}
             </div>
