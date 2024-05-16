@@ -194,9 +194,7 @@ const AddProductForm = () => {
     axios.post('/api/product', productData)
       .then(()=>{
         toast({
-          variant: "success",
-          title: "Uh oh! Something went wrong.",
-          description: "Something went wrong when saving the product",
+          description: "Saving successful",
           action: <ToastAction altText="Try again">Try again</ToastAction>,
         });
         setIsProductCreated(true);
