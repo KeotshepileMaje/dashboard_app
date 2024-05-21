@@ -39,7 +39,7 @@ const ManageOrders = ({ orders }) => {
         customer: order.name,
         amount: formatPrice(order.amount),
         paymentStatus: order.status,
-        date: moment(order.createdDate).fromNow(),
+        date: moment(order.createdAt).fromNow(),
         deliverStatus: order.deliveryStatus,
       };
     });
@@ -142,61 +142,67 @@ const ManageOrders = ({ orders }) => {
               icon={MdDone}
               onClick={() => handleDelivery(params.row.id, params.row.images)}
             />
-            <ActionBtn
+            {/* <ActionBtn
               icon={MdRemoveRedEye}
               onClick={() => {
-                router.push(`order/${params.row.id}`);
+                router.push(`transaction/${params.row.id}`);
               }}
-            />
+            /> */}
           </div>
         );
       },
     },
   ];
 
-  const handleDispatch = useCallback((id) => {
-    axios
-      .put("/api/orders", {
-        id,
-        deliveryStatus: 'dispatched',
-      })
-      .then((res) => {
-        toast({
-          description: "Order Dispatched",
+  const handleDispatch = useCallback(
+    (id) => {
+      axios
+        .put("/api/orders", {
+          id,
+          deliveryStatus: "dispatched",
+        })
+        .then((res) => {
+          toast({
+            description: "Order Dispatched",
+          });
+          router.refresh();
+        })
+        .catch((error) => {
+          toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description: error.message,
+            action: <ToastAction altText="Try again">Try again</ToastAction>,
+          });
         });
-        router.refresh();
-      })
-      .catch((error) => {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: error.message,
-          action: <ToastAction altText="Try again">Try again</ToastAction>,
-        });
-      });
-  }, []);
+    },
+    [router]
+  );
 
-  const handleDelivery = useCallback((id) => {
-    axios
-      .put("/api/orders", {
-        id,
-        deliveryStatus: "delivered",
-      })
-      .then((res) => {
-        toast({
-          description: "Order Delivered",
+  const handleDelivery = useCallback(
+    (id) => {
+      axios
+        .put("/api/orders", {
+          id,
+          deliveryStatus: "delivered",
+        })
+        .then((res) => {
+          toast({
+            description: "Order Delivered",
+          });
+          router.refresh();
+        })
+        .catch((error) => {
+          toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description: error.message,
+            action: <ToastAction altText="Try again">Try again</ToastAction>,
+          });
         });
-        router.refresh();
-      })
-      .catch((error) => {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: error.message,
-          action: <ToastAction altText="Try again">Try again</ToastAction>,
-        });
-      });
-  }, []);
+    },
+    [router]
+  );
 
   return (
     <div

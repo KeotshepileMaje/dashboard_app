@@ -7,8 +7,7 @@ import { ToastAction } from "@/app/components/ui/toast";
 import { toast } from "@/app/components/ui/use-toast";
 import firebaseapp from "@/libs/firebase";
 import { formatPrice } from "@/utils/formatPrice";
-import { truncateText } from "@/utils/truncate";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { deleteObject, getStorage, ref } from "firebase/storage";
 import { useRouter } from "next/navigation";
@@ -19,7 +18,7 @@ import {
   MdClose,
   MdDelete,
   MdDone,
-  MdRemoveRedEye,
+  // MdRemoveRedEye,
 } from "react-icons/md";
 
 const ManageProducts = ({ products }) => {
@@ -37,6 +36,7 @@ const ManageProducts = ({ products }) => {
         category: product.category,
         brand: product.brand,
         inStock: product.inStock,
+        images: product.images
       };
     });
   }
@@ -101,9 +101,7 @@ const ManageProducts = ({ products }) => {
             />
             <ActionBtn
               icon={MdDelete}
-              onClick={() => 
-                handleDelete(params.row.id, params.row.images)
-              }
+              onClick={() => handleDelete(params.row.id, params.row.images)}
             />
             {/* <ActionBtn 
             icon={MdRemoveRedEye}
@@ -117,64 +115,72 @@ const ManageProducts = ({ products }) => {
     },
   ];
 
-  const handleToggleStock = useCallback((id, inStock) => {
-    axios
-      .put("/api/product", {
-        id,
-        inStock: !inStock,
-      })
-      .then((res) => {
-        toast({
-          description: "Product status changed",
+  const handleToggleStock = useCallback(
+    (id, inStock) => {
+      axios
+        .put("/api/product", {
+          id,
+          inStock: !inStock,
+        })
+        .then((res) => {
+          toast({
+            description: "Product status changed",
+          });
+          router.refresh();
+        })
+        .catch((error) => {
+          toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description: error.message,
+            action: <ToastAction altText="Try again">Try again</ToastAction>,
+          });
         });
-        router.refresh();
-      })
-      .catch((error) => {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: error.message,
-          action: <ToastAction altText="Try again">Try again</ToastAction>,
-        });
-      });
-  }, []);
+    },
+    [router]
+  );
 
-  const handleDelete = useCallback(async (id, images) => {
-    toast({ description: "Deleting product, please wait" });
-
-    const handleImageDelete = async () => {
-      try {
-        for (const item of images) {
-          if (item.image) {
-            const imageRef = ref(storage, item.image);
-            await deleteObject(imageRef);
-            console.log("image deleted", item.image);
+  const handleDelete = useCallback(
+    async (id, images) => {
+      toast({ description: "Deleting product, please wait" });
+      console.log('Deleting---', images)
+      const handleImageDelete = async () => {
+        try {
+          if (images && Array.isArray(images)) {
+            for (const item of images) {
+              if (item.image) {
+                const imageRef = ref(storage, item.image);
+                await deleteObject(imageRef);
+                console.log("image deleted", item.image);
+              }
+            }
           }
+        } catch (error) {
+          console.log("Deleting image error", error);
         }
-      } catch (error) {
-        console.log("Deleting image error", error);
-      }
-    };
+      };
 
-    // Call the function using ()
-    await handleImageDelete();
+      // Call the function using ()
+      await handleImageDelete();
 
-    axios
-      .delete(`/api/product/${id}`)
-      .then((res) => {
-        toast({ description: "Product deleted" });
-        router.refresh();
-      })
-      .catch((error) => {
-        console.log(error);
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: "Delete failed",
-          action: <ToastAction altText="Try again">Try again</ToastAction>,
+      axios
+        .delete(`/api/product/${id}`)
+        .then((res) => {
+          toast({ description: "Product deleted" });
+          router.refresh();
+        })
+        .catch((error) => {
+          console.log(error);
+          toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description: "Delete failed",
+            action: <ToastAction altText="Try again">Try again</ToastAction>,
+          });
         });
-      });
-  }, []);
+    },
+    [router, storage]
+  );
 
   return (
     <div
