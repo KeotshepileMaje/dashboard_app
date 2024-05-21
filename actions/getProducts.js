@@ -33,6 +33,16 @@ export default async function getProducts(params) {
           },
         ],
       },
+      // include: {
+      //   reviews: {
+      //     include: {
+      //       user: true,
+      //     },
+      //     orderBy: {
+      //       createdDate: "desc",
+      //     },
+      //   },
+      // },
     });
 
     return products;
