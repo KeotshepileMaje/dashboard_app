@@ -11,27 +11,23 @@ const OrdersAdminNav = () => {
 
   return (
     <AdminNav>
-      <Link href="/products">
+      <Link href="/transactions">
         <AdminNavItem
-          label="All Order"
+          label="Orders Summary"
           icon={MdDashboard}
-          selected={pathname === "/products"}
+          selected={pathname === "/transactions"}
         />
       </Link>
-      <Link href="/products/add-products">
+      <Link href="/transactions/manage-orders">
         <AdminNavItem
-          label="Pending Order"
+          label="Manage Orders"
           icon={MdLibraryAdd}
-          selected={pathname === "/add-products"}
+          selected={pathname === "/transactions/manage-orders"}
         />
       </Link>
-      <Link href="/products/manage-products">
-        <AdminNavItem
-          label="Waiting for Delivery"
-          icon={MdDns}
-          selected={pathname === "/"}
-        />
-      </Link>
+      {pathname.startsWith("/transactions/order-details/") && (
+        <AdminNavItem label="Order Details" icon={MdDns} selected={true} />
+      )}
     </AdminNav>
   );
 }

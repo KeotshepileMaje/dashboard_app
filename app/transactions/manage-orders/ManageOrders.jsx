@@ -134,12 +134,12 @@ const ManageOrders = ({ orders }) => {
               icon={MdDone}
               onClick={() => handleDelivery(params.row.id, params.row.images)}
             />
-            {/* <ActionBtn
+            <ActionBtn
               icon={MdRemoveRedEye}
               onClick={() => {
-                router.push(`transaction/${params.row.id}`);
+                router.push(`/transactions/order-details/${params.row.id}`);
               }}
-            /> */}
+            />
           </div>
         );
       },

@@ -1,14 +1,7 @@
-import getOrders from "@/actions/getOrders";
-import ManageOrders from "./manage-orders/ManageOrders";
-
-const Transactions = async () => {
-  const orders = await getOrders()
-
+const OrderSummary = () => {
   return (
-    <div>
-      <ManageOrders orders={orders}/>
-    </div>
+    <div>Order Summaries</div>
   );
 }
- 
-export default Transactions;
+
+export default OrderSummary;
