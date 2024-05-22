@@ -5,22 +5,15 @@ import Heading from "@/app/components/Heading";
 import Status from "@/app/components/Status";
 import { ToastAction } from "@/app/components/ui/toast";
 import { toast } from "@/app/components/ui/use-toast";
-import firebaseapp from "@/libs/firebase";
 import { formatPrice } from "@/utils/formatPrice";
-import { truncateText } from "@/utils/truncate";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
-import { deleteObject, getStorage, ref } from "firebase/storage";
 import moment from "moment";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 
 import {
-  MdAccessTime,
   MdAccessTimeFilled,
-  MdCached,
-  MdClose,
-  MdDelete,
   MdDeliveryDining,
   MdDone,
   MdRemoveRedEye,
@@ -28,7 +21,6 @@ import {
 
 const ManageOrders = ({ orders }) => {
   const router = useRouter();
-  const storage = getStorage(firebaseapp);
 
   let rows = [];
 
