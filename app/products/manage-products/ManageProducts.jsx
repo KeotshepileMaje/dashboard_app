@@ -23,8 +23,11 @@ import {
 
 const ManageProducts = ({ products }) => {
   const router = useRouter();
-  const storage = getStorage(firebaseapp);
-
+  let storage
+  if (typeof window !== "undefined") {
+    storage = getStorage(firebaseapp);
+  }
+  console.log('Storage+++++  ',storage)
   let rows = [];
 
   if (products) {
