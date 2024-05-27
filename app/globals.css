@@ -12,19 +12,18 @@
 }
 
 :root {
-  --clr-primary: #29221d;
-  --clr-primar-light: #473b33;
-  --clr-secondary: #1e1611;
-  --clr-white: #fff;
+  --clr-primary: #cfcfcf;
+  --clr-primar-light: #ff6811;
+  --clr-white: #1E1E2C;
   --clr-black: #000;
   --clr-pumpkin: #fe6c00;
   --clr-silver: #a8a5a6;
-  --clr-silver-v1: #bdbabb;
+  --clr-silver-v1: #202020;
   --clr-scarlet: #fe1e00;
   --clr-scarlet-v1: rgb(254, 30, 0, 0.79);
   --clr-green: #00fe93;
   --clr-yellow: #fec80a;
-  --clr-jet: #302924;
+  --clr-jet: #c0bfbf;
   --clr-peach: #ffc397;
   --font-family-bai: "Bai Jamjuree", sans-serif;
   --transition-default: all 300ms ease-in-out;
@@ -70,7 +69,6 @@ button {
 
 .heading-3 {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
   font-weight: 600;
 }
 

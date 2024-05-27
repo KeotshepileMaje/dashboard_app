@@ -23,9 +23,9 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        primary: "#29221d",
+        primary: "#1E1E2C",
         primaryLight: "#473b33",
-        secondary: "#1e1611",
+        secondary: "#afada8",
         white: "#fff",
         black: "#000",
         pumpkin: "#fe6c00",
@@ -37,6 +37,7 @@ module.exports = {
         yellow: "#fec80a",
         jet: "#302924",
         peach: "#ffc397",
+        cloudGray: "#cfcfcf",
       },
       fontFamily: {
         bai: ["Bai Jamjuree", "sans-serif"],
