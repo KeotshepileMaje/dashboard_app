@@ -1,3 +1,4 @@
+import { FaPlus } from "react-icons/fa6";
 import { iconsImgs } from "../../utils/images";
 import { budget } from "../data/data";
 
@@ -7,7 +8,7 @@ const Budget = () => {
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">Budget</h3>
         <button className="grid-c-title-icon">
-          <img src={iconsImgs.plus} />
+          <FaPlus />
         </button>
       </div>
 

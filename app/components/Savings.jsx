@@ -1,5 +1,6 @@
 import { savings } from "../data/data";
-import { iconsImgs, personsImgs } from "../../utils/images";
+import { personsImgs } from "../../utils/images";
+import { FaPlus } from "react-icons/fa6";
 
 const Savings = () => {
   return (
@@ -7,7 +8,7 @@ const Savings = () => {
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">Savings</h3>
         <button className="grid-c-title-icon">
-          <img src={iconsImgs.plus} />
+          <FaPlus />
         </button>
       </div>
 

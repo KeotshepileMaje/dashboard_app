@@ -202,7 +202,7 @@ const ManageOrders = ({ orders }) => {
         max-w-[1150px]
         m-auto
         text-xl
-        bg-white
+        
         "
     >
       <div className="mb-4 mt-8">
@@ -210,6 +210,7 @@ const ManageOrders = ({ orders }) => {
       </div>
       <div style={{ height: 600, width: "100%" }}>
         <DataGrid
+          className="bg-cloudGray"
           rows={rows}
           columns={columns}
           initialState={{

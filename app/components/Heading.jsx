@@ -1,7 +1,7 @@
 const Heading= ({ title, center }) => {
   return (
     <div className={center ? "text-center" : "text-start"}>
-      <h1 className="font-bold text-4xl">{title}</h1>
+      <h1 className="font-bold text-4xl text-primary">{title}</h1>
     </div>
   );
 };

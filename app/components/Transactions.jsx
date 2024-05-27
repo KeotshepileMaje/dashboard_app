@@ -1,5 +1,6 @@
 import { transactions } from "../data/data";
 import { iconsImgs } from "../../utils/images";
+import { FaPlus } from "react-icons/fa6";
 
 const Transactions = () => {
   return (
@@ -7,7 +8,7 @@ const Transactions = () => {
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">All Transactions</h3>
         <button className="grid-c-title-icon">
-          <img src={iconsImgs.plus} />
+          <FaPlus />
         </button>
       </div>
 

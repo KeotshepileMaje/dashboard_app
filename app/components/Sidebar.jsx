@@ -8,8 +8,12 @@ import { SidebarContext } from "../context/sidebarContext";
 import Link from "next/link";
 
 const Sidebar = () => {
-  const [activeLinkIdx] = useState(1);
+  const [activeLinkIdx, setActiveLinkIdx] = useState(1);
   const { isSidebarOpen } = useContext(SidebarContext);
+
+  const handleLinkIdx = (currentIdx, currentPage) => {
+    setActiveLinkIdx(currentIdx);
+  };
 
   return (
     <div
@@ -27,12 +31,12 @@ const Sidebar = () => {
       <div className="flex justify-start items-center gap-x-4">
         <div
           className="
-          w-[48px] h-[48px] overflow-hidden rounded-full shadow-md shadow-black/50
+          w-[48px] h-[48px] overflow-hidden rounded-full shadow-md shadow-white/50
         "
         >
           <img src={personsImgs.person_two} alt="profile image" />
         </div>
-        <span className="font-semibold hidden xl:block text-base text-white uppercase">
+        <span className="font-semibold hidden xl:block text-base text-slate-100 uppercase">
           alice-doe
         </span>
       </div>
@@ -47,33 +51,39 @@ const Sidebar = () => {
           {navigationLinks.map((navigationLink) => (
             <li className="mb-2 mr-2" key={navigationLink.id}>
               <Link
-                href={`/${navigationLink.title.toLowerCase() === 'home' ? '/' : navigationLink.title.toLowerCase()}`}
+                href={`/${
+                  navigationLink.title.toLowerCase() === "home"
+                    ? "/"
+                    : navigationLink.title.toLowerCase()
+                }`}
                 className={`
-                flex 
+                flex
                 items-center 
                 justify-center
                 gap-x-3
                 p-0
                 w-min-[35px]
                 h-[35px]
-                hover:rounded-full
+                hover:rounded-xl
                 hover:border-2 
                 hover:border-primaryLight
                 border-1 border-transparent
                 ease-in duration-300
+                text-slate-100
                 xl:justify-start
                 xl:rounded-lg
                 xl:py-2 xl:px-3
                 xl:h-[45px]
                  ${
                    navigationLink.id === activeLinkIdx
-                     ? "active:bg-pumpkin  active:shadow-lg active:rounded-full"
+                     ? "bg-pumpkin shadow-lg rounded-xl"
                      : null
                  }`}
+                onClick={() => handleLinkIdx(navigationLink.id, navigationLink.title)}
               >
                 <img
                   src={navigationLink.image}
-                  className="w-[25px] h-[25px]"
+                  className="text-slate-100 w-[25px] h-[25px]"
                   alt={navigationLink.title}
                 />
                 <span
