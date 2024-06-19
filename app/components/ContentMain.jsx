@@ -1,15 +1,17 @@
 import Cards from "./Cards";
-import Transactions from "./Transactions";
 import Report from "./Report";
-import Budget from "./Budget";
 import Subscriptions from "./Subscriptions";
 import Savings from "./Savings";
 import Loans from "./Loans";
 import Financial from "./Financial";
+import CustomerProfile from "./CustomerProfile";
+import Stats from "./Stats";
+import PopularProducts from "./PopularProducts";
 
 const ContentMain = () => {
   return (
     <div className="grid gap-y-[20px] lg:gap-y-[16px]">
+      <Stats />
       <div
         className="
         grid 
@@ -20,11 +22,10 @@ const ContentMain = () => {
         grid-cols-1
         gap-x-0
         gap-y-[12px]
-        
         "
       >
         <Cards />
-        <Transactions />
+        <CustomerProfile />
         <Report />
       </div>
       <div
@@ -37,8 +38,7 @@ const ContentMain = () => {
       gap-y-[16px]
       "
       >
-        <Budget />
-
+        <PopularProducts />
         <div>
           <div
             className="
