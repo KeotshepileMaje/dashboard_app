@@ -1,7 +1,6 @@
 "use client"
 
 import { SidebarContext } from "@/app/context/sidebarContext";
-import { iconsImgs } from "@/utils/images";
 import { useContext } from "react";
 import { FaBell } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";

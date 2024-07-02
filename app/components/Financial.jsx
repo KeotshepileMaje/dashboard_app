@@ -1,5 +1,4 @@
 import { FaPlus } from "react-icons/fa6";
-import { iconsImgs } from "../../utils/images";
 
 const Financial = () => {
   return (

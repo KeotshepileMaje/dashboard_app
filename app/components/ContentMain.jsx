@@ -1,7 +1,5 @@
 import Cards from "./Cards";
 import Report from "./Report";
-import Subscriptions from "./Subscriptions";
-import Savings from "./Savings";
 import Loans from "./Loans";
 import Financial from "./Financial";
 import CustomerProfile from "./CustomerProfile";
@@ -46,18 +44,6 @@ const ContentMain = () => {
           md:grid
           gap-y-[12px]
           h-[100%]
-          "
-          >
-            <Subscriptions />
-            <Savings />
-          </div>
-        </div>
-
-        <div>
-          <div
-            className="
-          grid grid-cols-1 h-auto gap-y-[12px]
-          lg:gap-y-[20px]
           "
           >
             <Loans />
