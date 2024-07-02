@@ -4,7 +4,7 @@ import ActionBtn from "@/app/components/ActionBtn";
 import Heading from "@/app/components/Heading";
 import Status from "@/app/components/Status";
 import { ToastAction } from "@/app/components/ui/toast";
-import { toast } from "@/app/components/ui/use-toast";
+import { toast } from "@/libs/use-toast";
 import firebaseapp from "@/libs/firebase";
 import { formatPrice } from "@/utils/formatPrice";
 import { DataGrid } from "@mui/x-data-grid";
@@ -23,11 +23,11 @@ import {
 
 const ManageProducts = ({ products }) => {
   const router = useRouter();
-  let storage
+  let storage;
   if (typeof window !== "undefined") {
     storage = getStorage(firebaseapp);
   }
-  console.log('Storage+++++  ',storage)
+  console.log("Storage+++++  ", storage);
   let rows = [];
 
   if (products) {
@@ -39,7 +39,7 @@ const ManageProducts = ({ products }) => {
         category: product.category,
         brand: product.brand,
         inStock: product.inStock,
-        images: product.images
+        images: product.images,
       };
     });
   }
@@ -146,7 +146,7 @@ const ManageProducts = ({ products }) => {
   const handleDelete = useCallback(
     async (id, images) => {
       toast({ description: "Deleting product, please wait" });
-      console.log('Deleting---', images)
+      console.log("Deleting---", images);
       const handleImageDelete = async () => {
         try {
           if (images && Array.isArray(images)) {

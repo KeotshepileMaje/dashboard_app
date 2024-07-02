@@ -12,18 +12,18 @@ import {
 } from "recharts";
 
 const monthlyData = [
-  { month: "January", income: 15000, expenses: 8000 },
-  { month: "February", income: 16000, expenses: 9000 },
-  { month: "March", income: 17000, expenses: 8500 },
-  { month: "April", income: 18000, expenses: 9500 },
-  { month: "May", income: 20000, expenses: 10000 },
-  { month: "June", income: 22000, expenses: 11000 },
-  { month: "July", income: 21000, expenses: 10500 },
-  { month: "August", income: 23000, expenses: 11500 },
-  { month: "September", income: 24000, expenses: 12000 },
-  { month: "October", income: 25000, expenses: 13000 },
-  { month: "November", income: 26000, expenses: 14000 },
-  { month: "December", income: 27000, expenses: 15000 },
+  { month: "July", income: 15000, expenses: 8000 },
+  { month: "August", income: 16000, expenses: 9000 },
+  { month: "September", income: 17000, expenses: 8500 },
+  { month: "October", income: 18000, expenses: 9500 },
+  { month: "November", income: 20000, expenses: 10000 },
+  { month: "December", income: 22000, expenses: 11000 },
+  { month: "January", income: 21000, expenses: 10500 },
+  { month: "February", income: 23000, expenses: 11500 },
+  { month: "March", income: 24000, expenses: 12000 },
+  { month: "April", income: 25000, expenses: 13000 },
+  { month: "May", income: 26000, expenses: 14000 },
+  { month: "June", income: 27000, expenses: 15000 },
 ];
 
 const Reports = () => {

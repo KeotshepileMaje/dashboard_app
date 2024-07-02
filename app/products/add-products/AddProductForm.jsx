@@ -9,20 +9,25 @@ import { categories } from "@/utils/category";
 import { colors } from "@/utils/colors";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import firebaseapp from "@/libs/firebase";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Button from "@/app/components/ui/Button";
 import { Loader2 } from "lucide-react";
-import { toast } from "@/app/components/ui/use-toast";
+import { toast } from "@/libs/use-toast";
 import { ToastAction } from "@/app/components/ui/toast";
 
 const AddProductForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [images, setImages] = useState();
   const [isProductCreated, setIsProductCreated] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const {
     register,
@@ -40,20 +45,20 @@ const AddProductForm = () => {
       category: "",
       inStock: false,
       images: [],
-    }
+    },
   });
 
-  useEffect(()=>{
-    setCustomValue('images', images)
-  },[images])
+  useEffect(() => {
+    setCustomValue("images", images);
+  }, [images]);
 
-  useEffect(()=> {
+  useEffect(() => {
     if (isProductCreated) {
       reset();
       setImages(null);
       setIsProductCreated(false);
-    };
-  },[isProductCreated]);
+    }
+  }, [isProductCreated]);
 
   const category = watch("category");
   const setCustomValue = (id, value) => {
@@ -64,44 +69,44 @@ const AddProductForm = () => {
     });
   };
 
-  const addImageToState = useCallback((value)=> {
+  const addImageToState = useCallback((value) => {
     setImages((prev) => {
       if (!prev) {
-        return [value]
+        return [value];
       }
-      return [...prev, value]
-    })
-  },[])
+      return [...prev, value];
+    });
+  }, []);
   const removeImageToState = useCallback((value) => {
     setImages((prev) => {
       if (prev) {
         const filteredImages = prev.filter(
           (item) => item.color !== value.color
-        )
-        return filteredImages
+        );
+        return filteredImages;
       }
     });
   }, []);
 
   const onSubmit = async (data) => {
-    console.log('Product Data', data);
+    console.log("Product Data", data);
     // upload images to firebse
     // save product to mongodb
 
-    setIsLoading(true); 
+    setIsLoading(true);
     let uploadedImages = [];
 
     if (!data.category) {
-      setIsLoading(false)
+      setIsLoading(false);
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
         description: "Category is not selected",
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
-    };
+    }
     if (!data.images || data.images.length === 0) {
-      setIsLoading(false)
+      setIsLoading(false);
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
@@ -114,7 +119,7 @@ const AddProductForm = () => {
         description: "Category is not selected",
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
-    };
+    }
 
     const handleImageUploads = async () => {
       toast({
@@ -123,13 +128,12 @@ const AddProductForm = () => {
       try {
         for (const item of data.images) {
           if (item.image) {
-            const fileName = new Date().getTime() + '-' + item.image.name
-            const storage = getStorage(firebaseapp)
-            const storageRef = ref(storage, `products/${fileName}`)
-            const uploadTask = uploadBytesResumable(storageRef,  item.image)
+            const fileName = new Date().getTime() + "-" + item.image.name;
+            const storage = getStorage(firebaseapp);
+            const storageRef = ref(storage, `products/${fileName}`);
+            const uploadTask = uploadBytesResumable(storageRef, item.image);
 
-
-            await new Promise ((resolve, reject) =>{
+            await new Promise((resolve, reject) => {
               uploadTask.on(
                 "state_changed",
                 (snapshot) => {
@@ -149,34 +153,32 @@ const AddProductForm = () => {
                 },
                 (error) => {
                   // Handle unsuccessful uploads
-                  console.log('Error uploading image', error)
-                  reject(error)
+                  console.log("Error uploading image", error);
+                  reject(error);
                 },
                 () => {
                   // Handle successful uploads on complete
                   // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                  getDownloadURL(uploadTask.snapshot.ref).then(
-                    (downloadURL) => {  
+                  getDownloadURL(uploadTask.snapshot.ref)
+                    .then((downloadURL) => {
                       uploadedImages.push({
                         ...item,
-                        image: downloadURL
-                      })
+                        image: downloadURL,
+                      });
                       console.log("File available at", downloadURL);
-                      resolve()
-                    }
-                  ).catch(
-                    (error) => {
-                    console.log('Error getting the download URL', error)
-                  })
+                      resolve();
+                    })
+                    .catch((error) => {
+                      console.log("Error getting the download URL", error);
+                    });
                 }
               );
-            })
-
+            });
           }
         }
       } catch (error) {
-        setIsLoading(false)
-        console.error('Error handling image uploads', error)
+        setIsLoading(false);
+        console.error("Error handling image uploads", error);
         toast({
           variant: "destructive",
           title: "Uh oh! Something went wrong.",
@@ -187,12 +189,13 @@ const AddProductForm = () => {
     };
 
     await handleImageUploads();
-    const productData = {...data, image:uploadedImages}
+    const productData = { ...data, image: uploadedImages };
 
-    console.log('productData', productData)
-    
-    axios.post('/api/product', productData)
-      .then(()=>{
+    console.log("productData", productData);
+
+    axios
+      .post("/api/product", productData)
+      .then(() => {
         toast({
           description: "Saving successful",
           action: <ToastAction altText="Try again">Try again</ToastAction>,
@@ -208,10 +211,10 @@ const AddProductForm = () => {
           action: <ToastAction altText="Try again">Try again</ToastAction>,
         });
       })
-      .finally(()=> {
-        setIsLoading(false)
-      })
-  }
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   return (
     <div className="grid-common">

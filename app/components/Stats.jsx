@@ -5,8 +5,8 @@ import { FaCartShopping } from "react-icons/fa6";
 
 const Stats = () => {
   return (
-<div
-  className="grid 
+    <div
+      className="grid 
         lg:grid-cols-3 
         lg:gap-x-[16px]
         md:gap-x-[12px]
@@ -15,39 +15,39 @@ const Stats = () => {
         gap-x-0
         gap-y-[12px]
         "
->
-  <BoxWrapper
-    icon={IoBagHandle}
-    iconColor="bg-sky-500"
-    title="Total sales"
-    amount="R34525.00"
-    performance={+345}
-  />
-  <BoxWrapper
-    icon={IoIosPie}
-    iconColor="bg-orange-500"
-    title="Total Expenses"
-    amount="R1234"
-    performance={+343}
-  />
-  <BoxWrapper
-    icon={IoPeopleCircle}
-    iconColor="bg-yellow"
-    title="Total Customers"
-    amount="5678"
-    performance={-30}
-  />
-  <BoxWrapper
-    icon={FaCartShopping}
-    iconColor="bg-emerald-500"
-    title="Total Orders"
-    amount="R16493"
-    performance={-43}
-  />
-</div>
+    >
+      <BoxWrapper
+        icon={IoBagHandle}
+        iconColor="bg-sky-500"
+        title="Total sales"
+        amount="R34525.00"
+        performance={+345}
+      />
+      <BoxWrapper
+        icon={IoIosPie}
+        iconColor="bg-orange-500"
+        title="Total Expenses"
+        amount="R1234"
+        performance={+343}
+      />
+      <BoxWrapper
+        icon={IoPeopleCircle}
+        iconColor="bg-yellow"
+        title="Total Customers"
+        amount="5678"
+        performance={-30}
+      />
+      <BoxWrapper
+        icon={FaCartShopping}
+        iconColor="bg-emerald-500"
+        title="Total Orders"
+        amount="R16493"
+        performance={-43}
+      />
+    </div>
   );
-}
- 
+};
+
 export default Stats;
 
 function BoxWrapper({ icon: Icon, iconColor, title, amount, performance }) {

@@ -5,43 +5,49 @@ const popularProductsData = [
   {
     id: "3432",
     product_name: 'Macbook M1 Pro 14"',
-    product_thumbnail: "https://source.unsplash.com/100x100?macbook",
+    product_thumbnail:
+      "https://m.media-amazon.com/images/I/81OAWVU171L._AC_SX466_.jpg",
     product_price: "$1499.00",
     product_stock: 341,
   },
   {
     id: "7633",
     product_name: "Samsung Galaxy Buds 2",
-    product_thumbnail: "https://source.unsplash.com/100x100?earbuds",
-    product_price: "$399.00",
+    product_thumbnail:
+      "https://m.media-amazon.com/images/I/51BOYHNPVyL._AC_SY300_SX300_.jpg",
+    product_price: "$299.00",
     product_stock: 24,
   },
   {
     id: "6534",
     product_name: "Asus Zenbook Pro",
-    product_thumbnail: "https://source.unsplash.com/100x100?laptop",
-    product_price: "$899.00",
+    product_thumbnail:
+      "https://m.media-amazon.com/images/I/510lzmyNBNS._AC_SX355_.jpg",
+    product_price: "$779.00",
     product_stock: 56,
   },
   {
     id: "9234",
-    product_name: "LG Flex Canvas",
-    product_thumbnail: "https://source.unsplash.com/100x100?smartphone",
-    product_price: "$499.00",
+    product_name: "Acer A315-35-C73P",
+    product_thumbnail:
+      "https://m.media-amazon.com/images/I/61jbu5LdQ0L._AC_SX355_.jpg",
+    product_price: "$350.00",
     product_stock: 98,
   },
   {
     id: "4314",
-    product_name: "Apple Magic Touchpad",
-    product_thumbnail: "https://source.unsplash.com/100x100?touchpad",
-    product_price: "$699.00",
+    product_name: "Apple Magic Keyboard",
+    product_thumbnail:
+      "https://m.media-amazon.com/images/I/71FCLaGjybL._AC_SX342_SY445_.jpg",
+    product_price: "$101.00",
     product_stock: 0,
   },
   {
     id: "4342",
-    product_name: "Nothing Earbuds One",
-    product_thumbnail: "https://source.unsplash.com/100x100?earphone",
-    product_price: "$399.00",
+    product_name: "JBL Live Pro 2",
+    product_thumbnail:
+      "https://m.media-amazon.com/images/I/716qvosJMHL._AC_SY355_.jpg",
+    product_price: "$259.00",
     product_stock: 453,
   },
 ];

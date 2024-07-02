@@ -18,18 +18,18 @@ const ProductAdminNav = () => {
           selected={pathname === "/products"}
         />
       </Link>
-      <Link href="/products/add-products">
-        <AdminNavItem
-          label="Add Products"
-          icon={MdLibraryAdd}
-          selected={pathname === "/add-products"}
-        />
-      </Link>
       <Link href="/products/manage-products">
         <AdminNavItem
           label="Manage Products"
           icon={MdDns}
-          selected={pathname === "/"}
+          selected={pathname === "/products/manage-products"}
+        />
+      </Link>
+      <Link href="/products/add-products">
+        <AdminNavItem
+          label="Add Products"
+          icon={MdLibraryAdd}
+          selected={pathname === "/products/add-products"}
         />
       </Link>
     </AdminNav>

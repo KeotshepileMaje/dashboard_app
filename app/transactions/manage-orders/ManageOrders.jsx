@@ -4,7 +4,7 @@ import ActionBtn from "@/app/components/ActionBtn";
 import Heading from "@/app/components/Heading";
 import Status from "@/app/components/Status";
 import { ToastAction } from "@/app/components/ui/toast";
-import { toast } from "@/app/components/ui/use-toast";
+import { toast } from "@/libs/use-toast";
 import { formatPrice } from "@/utils/formatPrice";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
@@ -83,7 +83,7 @@ const ManageOrders = ({ orders }) => {
         );
       },
     },
-    
+
     {
       field: "deliverStatus",
       headerName: "Deliver Status",
